@@ -1,23 +1,22 @@
-import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
-export type ButtonSize = "lg" | "sm";
-export type ButtonType = "success" | "default" | "danger" | "warning";
+export type AlertType = "success" | "default" | "danger" | "warning";
 export type PositionType = "left" | "top" | "bottom" | "right";
 
-interface BaseButtonProps {
+interface BaseAlertProps {
   className?: string;
+  title?: React.ReactNode;
   position?: PositionType;
   /**设置 Button 的禁用 */
   /**设置 Button 的尺寸 */
   /**设置 Button 的类型 */
-  btnType?: ButtonType;
+  type?: AlertType;
   children: React.ReactNode;
 }
 //交叉类型
-type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
-type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
+type NativeAlertProps = BaseAlertProps;
 //Partial 设置为可选属性
-export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+export type AlertProps = Partial<NativeAlertProps>;
 /**
  * 页面中最常用的的按钮元素，适合于完成特定的交互
  * ### 引用方法
@@ -26,17 +25,22 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
  * import { Button } from '8'
  * ~~~
  */
-export const Alert: FC<ButtonProps> = (props) => {
-  const { btnType, className, children, ...restProps } = props;
+export const Alert: FC<AlertProps> = (props) => {
+  const { type, title, className, children, ...restProps } = props;
   // btn, btn-lg, btn-primary
   const classes = classNames("alert", className, {
-    [`alert-${btnType}`]: btnType,
+    [`alert-${type}`]: type,
   });
-  return <div>1</div>;
+  return (
+    <div>
+      <p>{title}</p>
+      <p>{children}</p>
+    </div>
+  );
 };
 
 Alert.defaultProps = {
-  btnType: "default",
+  type: "default",
 };
 
 export default Alert;

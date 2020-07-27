@@ -12,9 +12,7 @@ npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 
 npm rebuild node-sass
 
-## Available Scripts
-
-# 3. 安装其余的依赖
+### 3. 安装其余的依赖
 
 npm install
 

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./components/Button/button";
+import Alert from "./components/Alert/alert";
 import "./styles/index.scss";
 //import logo from "./logo.svg";
 import "./App.css";
@@ -25,6 +26,9 @@ function App() {
         >
           word
         </Button>
+        <div>
+          <Alert title="我是标题">this is alert</Alert>
+        </div>
       </header>
     </div>
   );

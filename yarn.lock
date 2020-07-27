@@ -1436,7 +1436,7 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
-"@testing-library/dom@*":
+"@testing-library/dom@*", "@testing-library/dom@^7.21.4":
   version "7.21.4"
   resolved "https://registry.npm.taobao.org/@testing-library/dom/download/@testing-library/dom-7.21.4.tgz#24b045f3161b7c91fdb35da7c001908cdc99b55b"
   integrity sha1-JLBF8xYbfJH9s12nwAGQjNyZtVs=
