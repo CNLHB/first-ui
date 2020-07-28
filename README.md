@@ -8,10 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 
-### 上一句失败 将 已下载东西 重新编译
-
-npm rebuild node-sass
-
 ### 3. 安装其余的依赖
 
 npm install

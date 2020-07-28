@@ -21,6 +21,7 @@ $green: #52c41a !default;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
 
+
 $primary: $blue !default;
 $secondary: $gray-600 !default;
 $success: $green !default;
@@ -29,7 +30,7 @@ $warning: $yellow !default;
 $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
-
+$default:#e6f7ff !default
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
@@ -78,7 +79,7 @@ $h6-font-size: $font-size-base !default;
 // 链接
 $link-color: $primary !default;
 $link-decoration: none !default;
-$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-color: darken($link-color, 15%) !default; //darken变暗
 $link-hover-decoration: underline !default;
 
 // body
@@ -215,6 +216,14 @@ $btn-border-radius-sm: $border-radius-sm !default;
 
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
+//alert
+// 提示框基本属性
+$alert-font-weight: 400;
+$alert-padding-y: 0.5rem !default;
+$alert-padding-x: 0.9rem !default;
+
+
 
 // menu
 $menu-border-width: $border-width !default;

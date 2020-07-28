@@ -15,7 +15,7 @@ const testProps: ButtonProps = {
 describe("test Button component", () => {
   it("should render the correct default button", () => {
     const wrapper = render(<Button {...defaultProps}>Nice</Button>);
-    const element = wrapper.queryByText("Nice"); //测试文本是否正确
+    const element = wrapper.queryByText("Nice") as HTMLButtonElement; //测试文本是否正确
     expect(element).toBeInTheDocument();
     expect(element.tagName).toEqual("BUTTON"); //测试标签是否正确
     expect(element).toHaveClass("btn btn-default"); //测试class是否正确
@@ -24,7 +24,7 @@ describe("test Button component", () => {
   });
   it("should render the correct component based on different props", () => {
     const wrapper = render(<Button {...testProps}>Nice</Button>);
-    const element = wrapper.queryByText("Nice"); //测试文本是否正确
+    const element = wrapper.queryByText("Nice") as HTMLButtonElement; //测试文本是否正确
     expect(element).toBeInTheDocument();
     expect(element.tagName).toEqual("BUTTON"); //测试标签是否正确
     expect(element).toHaveClass("btn btn-lg klass"); //测试class是否正确
@@ -37,10 +37,38 @@ describe("test Button component", () => {
         Link
       </Button>
     );
-    const element = wrapper.queryByText("Link"); //测试文本是否正确
+    const element = wrapper.queryByText("Link") as HTMLAnchorElement; //测试文本是否正确
     expect(element).toBeInTheDocument();
     expect(element.tagName).toEqual("A"); //测试标签是否正确
     expect(element).toHaveClass("btn btn-link"); //测试class是否正确
+    fireEvent.click(element);
+    expect(defaultProps.onClick).toHaveBeenCalled();
+  });
+  it("should render disabled button when disabled a default", () => {
+    const wrapper = render(
+      <Button {...defaultProps} btnType="danger">
+        disabled
+      </Button>
+    );
+    const element = wrapper.queryByText("disabled") as HTMLButtonElement; //测试文本是否正确
+    expect(element).toBeInTheDocument();
+    expect(element.tagName).toEqual("BUTTON"); //测试标签是否正确
+    expect(element).toHaveClass("btn btn-danger"); //测试class是否正确
+    expect(element.disabled).toBeFalsy();
+    fireEvent.click(element);
+    expect(defaultProps.onClick).toHaveBeenCalled();
+  });
+  it("should render disabled button when disabled set a true", () => {
+    const wrapper = render(
+      <Button {...defaultProps} disabled={true} btnType="danger">
+        disabled
+      </Button>
+    );
+    const element = wrapper.queryByText("disabled") as HTMLButtonElement; //测试文本是否正确
+    expect(element).toBeInTheDocument();
+    expect(element.tagName).toEqual("BUTTON"); //测试标签是否正确
+    expect(element).toHaveClass("btn btn-danger"); //测试class是否正确
+    expect(element.disabled).toBeTruthy();
     fireEvent.click(element);
     expect(defaultProps.onClick).toHaveBeenCalled();
   });

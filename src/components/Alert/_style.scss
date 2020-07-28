@@ -1,3 +1,43 @@
 .alert {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  color: $body-color;
+  @include alert-size($alert-padding-y, $alert-padding-x, $border-radius);
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  .alert-content {
+    flex: 1;
+  }
+  .alert-close {
+    width: 32px;
+    span {
+      cursor: pointer;
+    }
+  }
+  .alert-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-light;
+  }
+  .alert-message {
+    position: relative;
+  }
+}
+
+.alert-success {
+  @include alert-style(#f6ffed, #b7eb8f);
+}
+.alert-danger {
+  @include alert-style(#fff2f0, #ffccc7);
+}
+.alert-warning {
+  @include alert-style(#fffbe6, #ffe58f);
+}
+.alert-default {
+  @include alert-style($default, #91d5ff);
+}
+.alert-none {
+  display: none;
 }
